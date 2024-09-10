@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:new_project/utilis/constants/color_contants.dart';
 import 'package:new_project/utilis/constants/image_constants.dart';
+import 'package:new_project/view/bottomnavbar_screen/bottomnavbar_screen.dart';
 
 class OnbodyScreen extends StatelessWidget {
   const OnbodyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          _buildBackgroundImage(),
-          _buildStartingTopText(),
-          _buildGradientSection(),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            _buildBackgroundImage(),
+            _buildStartingTopText(),
+            _buildGradientSection(context),
+          ],
+        ),
       ),
     );
   }
@@ -27,24 +30,43 @@ class OnbodyScreen extends StatelessWidget {
           Icon(
             Icons.star,
             color: ColorContants.TEXT_COLOR,
-            size: 12,
+            size: 15,
           ),
-          Text(
-            "60+",
-            style: TextStyle(
-                fontWeight: FontWeight.bold, color: ColorContants.TEXT_COLOR),
+          SizedBox(
+            width: 10,
           ),
-          Text(
-            "Premium recipes",
-            style: TextStyle(
-                color: ColorContants.TEXT_COLOR, fontWeight: FontWeight.normal),
-          )
+          // Text(
+          //   "60k+",
+          // style: TextStyle(
+          //     fontWeight: FontWeight.bold, color: ColorContants.TEXT_COLOR),
+          // ),
+          // Text(
+          //   "Premium recipes",
+          // style: TextStyle(
+          //     color: ColorContants.TEXT_COLOR, fontWeight: FontWeight.normal),
+          // )
+          RichText(
+              text: TextSpan(
+                  text: "60k+",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: ColorContants.TEXT_COLOR,
+                      fontSize: 16),
+                  children: [
+                TextSpan(
+                  text: " Premium recipes",
+                  style: TextStyle(
+                      color: ColorContants.TEXT_COLOR,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 16),
+                )
+              ]))
         ],
       ),
     );
   }
 
-  Positioned _buildGradientSection() {
+  Positioned _buildGradientSection(BuildContext context) {
     return Positioned(
       bottom: 0,
       right: 0,
@@ -81,29 +103,37 @@ class OnbodyScreen extends StatelessWidget {
             SizedBox(
               height: 40,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 17, horizontal: 32),
-              decoration: BoxDecoration(
-                  color: ColorContants.PRIMARY_COLOR,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Start cooking",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                        color: ColorContants.TEXT_COLOR),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Icon(
-                    Icons.arrow_forward_outlined,
-                    color: ColorContants.TEXT_COLOR,
-                  )
-                ],
+            InkWell(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BottomnavbarScreen()));
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 17, horizontal: 32),
+                decoration: BoxDecoration(
+                    color: ColorContants.PRIMARY_COLOR,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Start cooking",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: ColorContants.TEXT_COLOR),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Icon(
+                      Icons.arrow_forward_outlined,
+                      color: ColorContants.TEXT_COLOR,
+                    )
+                  ],
+                ),
               ),
             )
           ],
