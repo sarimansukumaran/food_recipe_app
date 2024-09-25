@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_project/dummy_db.dart';
 import 'package:new_project/utilis/constants/color_contants.dart';
+import 'package:new_project/view/Global_widgets/customRecipeCard.dart';
 
 import 'package:new_project/view/Global_widgets/custom_video_card.dart';
 import 'package:new_project/view/recipe_detail_screen/recipe_detail_screen.dart';
@@ -56,39 +57,52 @@ class BookmarkScreen extends StatelessWidget {
         // SizedBox(
         //   height: 20,
         // ),
-        body: ListView.separated(
-            //scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-            itemBuilder: (condext, index) => CustomVideoCard(
-                  onCardTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RecipeDetailScreen(
-                                  recipeeTitle: DummyDb.trendingnowList[index]
-                                      ["videoName"],
-                                  image: DummyDb.trendingnowList[index]
-                                      ["bgimage"],
-                                  rating: DummyDb.trendingnowList[index]
-                                      ["rating"],
-                                  profilepic: DummyDb.trendingnowList[index]
-                                      ["profilepic"],
-                                  profilename: DummyDb.trendingnowList[index]
-                                      ["profileName"],
-                                )));
-                  },
-                  width: double.infinity,
-                  rating: DummyDb.trendingnowList[index]["rating"],
-                  bgimage: DummyDb.trendingnowList[index]["bgimage"],
-                  vidtime: DummyDb.trendingnowList[index]["vidtime"],
-                  videoName: DummyDb.trendingnowList[index]["videoName"],
-                  profilepic: DummyDb.trendingnowList[index]["profilepic"],
-                  profileName: DummyDb.trendingnowList[index]["profileName"],
-                ),
-            separatorBuilder: (context, index) => SizedBox(
-                  height: 16,
-                ),
-            itemCount: DummyDb.trendingnowList.length),
+        body: TabBarView(children: [
+          ListView.separated(
+              //scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              itemBuilder: (condext, index) => CustomVideoCard(
+                    onCardTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RecipeDetailScreen(
+                                    recipeeTitle: DummyDb.trendingnowList[index]
+                                        ["videoName"],
+                                    image: DummyDb.trendingnowList[index]
+                                        ["bgimage"],
+                                    rating: DummyDb.trendingnowList[index]
+                                        ["rating"],
+                                    profilepic: DummyDb.trendingnowList[index]
+                                        ["profilepic"],
+                                    profilename: DummyDb.trendingnowList[index]
+                                        ["profileName"],
+                                  )));
+                    },
+                    width: double.infinity,
+                    rating: DummyDb.trendingnowList[index]["rating"],
+                    bgimage: DummyDb.trendingnowList[index]["bgimage"],
+                    vidtime: DummyDb.trendingnowList[index]["vidtime"],
+                    videoName: DummyDb.trendingnowList[index]["videoName"],
+                    profilepic: DummyDb.trendingnowList[index]["profilepic"],
+                    profileName: DummyDb.trendingnowList[index]["profileName"],
+                  ),
+              separatorBuilder: (context, index) => SizedBox(
+                    height: 16,
+                  ),
+              itemCount: DummyDb.trendingnowList.length),
+
+          //2nd tab
+          ListView.builder(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            itemBuilder: (context, index) => CustomRecipeCard(
+                imageurl: DummyDb.cudtomRecipeList[index]["image"],
+                ratings: DummyDb.cudtomRecipeList[index]["ratings"],
+                recipeName: DummyDb.cudtomRecipeList[index]["name"],
+                duration: DummyDb.cudtomRecipeList[index]["duration"]),
+            itemCount: DummyDb.cudtomRecipeList.length,
+          )
+        ]),
         //   ],
         // ),
         // ),

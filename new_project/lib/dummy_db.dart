@@ -152,4 +152,80 @@ class DummyDb {
       "creatorname": "Liam Brown"
     }
   ];
+  static List frenchToastIncredientList = [
+    {
+      "image":
+          "https://images.pexels.com/photos/209206/pexels-photo-209206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "name": "Bread",
+      "qantity": "200gm"
+    },
+    {
+      "image":
+          "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "name": "Milk",
+      "qantity": "200gm"
+    },
+    {
+      "image":
+          "https://images.pexels.com/photos/4045697/pexels-photo-4045697.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "name": "Egg",
+      "qantity": "200gm"
+    },
+    {
+      "image":
+          "https://images.pexels.com/photos/3821250/pexels-photo-3821250.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "name": "Butter",
+      "qantity": "200gm"
+    },
+    {
+      "image":
+          "https://images.pexels.com/photos/3821250/pexels-photo-3821250.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "name": "Vanilla",
+      "qantity": "200gm"
+    },
+  ];
+  static const List cudtomRecipeList = [
+    {
+      "image":
+          "https://images.pexels.com/photos/769969/pexels-photo-769969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "ratings": "5.5",
+      "name": "How to make Italian Spaghette at Home",
+      "duration": "12 ingredients | 40min"
+    },
+    {
+      "image":
+          "https://images.pexels.com/photos/28503586/pexels-photo-28503586/free-photo-of-delicious-chicken-fried-rice-with-omelette-topping.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "ratings": "4.7",
+      "name": "Simple Chicken Meal prep Dishes",
+      "duration": "12 ingredients | 40min"
+    },
+    {
+      "image":
+          "https://images.pexels.com/photos/11743998/pexels-photo-11743998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "ratings": "5.0",
+      "name": "Japanese Fired rice",
+      "duration": "12 ingredients | 40min"
+    },
+    {
+      "image":
+          "https://images.pexels.com/photos/769969/pexels-photo-769969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "ratings": "5.5",
+      "name": "How to make Italian Spaghette at Home",
+      "duration": "12 ingredients | 40min"
+    },
+    {
+      "image":
+          "https://images.pexels.com/photos/28503586/pexels-photo-28503586/free-photo-of-delicious-chicken-fried-rice-with-omelette-topping.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "ratings": "4.7",
+      "name": "Simple Chicken Meal prep Dishes",
+      "duration": "12 ingredients | 40min"
+    },
+    {
+      "image":
+          "https://images.pexels.com/photos/11743998/pexels-photo-11743998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "ratings": "5.0",
+      "name": "Japanese Fired rice",
+      "duration": "12 ingredients | 40min"
+    }
+  ];
 }

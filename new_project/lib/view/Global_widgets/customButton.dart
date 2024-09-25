@@ -5,10 +5,16 @@ class CustomButton extends StatelessWidget {
   CustomButton({
     required this.text,
     this.onPressedbtn,
+    this.height,
+    this.width,
+    this.fontSize,
     super.key,
   });
   String text;
   void Function()? onPressedbtn;
+  final double? height;
+  final double? width;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +22,8 @@ class CustomButton extends StatelessWidget {
       onTap: onPressedbtn,
       child: Container(
         padding: EdgeInsets.all(8),
-        height: 36,
-        width: 77,
+        height: height ?? 36,
+        width: width ?? 77,
         decoration: BoxDecoration(
             color: ColorContants.PRIMARY_COLOR,
             borderRadius: BorderRadius.circular(10)),
@@ -25,7 +31,7 @@ class CustomButton extends StatelessWidget {
           text,
           style: TextStyle(
               color: ColorContants.TEXT_COLOR,
-              fontSize: 14,
+              fontSize: fontSize ?? 14,
               fontWeight: FontWeight.w600),
           textAlign: TextAlign.center,
         ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:new_project/utilis/constants/color_contants.dart';
 import 'package:new_project/view/bookmark_screen/bookmark_screen.dart';
+import 'package:new_project/view/create_recipe_screen/create_recipe_screen.dart';
 import 'package:new_project/view/home_screen/homescreen.dart';
+import 'package:new_project/view/notifications/notifications.dart';
+import 'package:new_project/view/profile_screen/profile_screen.dart';
 
 class BottomnavbarScreen extends StatefulWidget {
   const BottomnavbarScreen({super.key});
@@ -14,12 +17,8 @@ class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
   final List screens = [
     Homescreen(),
     BookmarkScreen(),
-    Container(
-      color: Colors.yellow,
-    ),
-    Container(
-      color: Colors.black,
-    )
+    Notifications(),
+    ProfileScreen()
   ];
   int _currentindex = 0;
   @override
@@ -33,7 +32,10 @@ class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
             color: ColorContants.TEXT_COLOR,
           ),
           shape: CircleBorder(),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => CreateRecipeScreen()));
+          },
         ),
         body: screens[_currentindex],
         bottomNavigationBar: BottomNavigationBar(
@@ -48,7 +50,7 @@ class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.bookmark_outline), label: ""),
             BottomNavigationBarItem(
-                icon: Icon(Icons.notifications_none_outlined), label: ""),
+                icon: Icon((Icons.notifications_none_outlined)), label: ""),
             BottomNavigationBarItem(
                 icon: Icon(Icons.person_2_outlined), label: ""),
           ],
